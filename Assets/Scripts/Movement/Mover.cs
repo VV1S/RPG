@@ -1,3 +1,5 @@
+using RPG.Combat;
+using RPG.Core;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -11,11 +13,23 @@ namespace RPG.Movement
     {
         [SerializeField] Transform target;
 
-        Ray lastRay;
+        NavMeshAgent navMeshAgent;
+
+        private void Start()
+        {
+            navMeshAgent = GetComponent<NavMeshAgent>();
+        }
 
         void Update()
         {
             UpdateAnimator();
+        }
+
+        public void StartMoveAction(Vector3 destination)
+        {
+            GetComponent<ActionScheluder>().StartAction(this);
+            GetComponent<Fighter>().Cancel();
+            MoveTo(destination);
         }
 
         private void UpdateAnimator()
@@ -29,6 +43,12 @@ namespace RPG.Movement
         public void MoveTo(Vector3 destination)
         {
             GetComponent<NavMeshAgent>().destination = destination;
+            navMeshAgent.isStopped = false;
+        }
+
+        public void Stop()
+        {
+            navMeshAgent.isStopped = true;  
         }
     }
 }
