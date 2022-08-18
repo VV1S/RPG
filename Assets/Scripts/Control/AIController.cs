@@ -3,22 +3,33 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using RPG.Core;
+using RPG.Movement;
 
 namespace RPG.Control
 {
     public class AIController : MonoBehaviour
     {
         [SerializeField] float chaseDistance = 5f;
+        [SerializeField] float suspitionTime = 3f;
+        [SerializeField] private PatrolPath patrolPath;
+        [SerializeField] private float waypointTollerance = 1f;
 
         GameObject player;
         Fighter fighter;
         Health health;
+        Mover mover;
+
+        Vector3 guardPosition;
+        float timeSinceLastSawPlayer = Mathf.Infinity;
+        private int currentWaypointIndex = 0;
 
         private void Start()
         {
             player = GameObject.FindWithTag("Player");
             health = GetComponent<Health>();
             fighter = GetComponent<Fighter>();
+            mover = GetComponent<Mover>();
+            guardPosition = transform.position;
         }
 
         private void Update()
@@ -38,12 +49,67 @@ namespace RPG.Control
 
             if (InAttackRangeOfPlayer() && fighter.CanAttack(player))
             {
-                fighter.Attck(player);
+                timeSinceLastSawPlayer = 0;
+                AttackBehaviour();
+            }
+            else if (timeSinceLastSawPlayer < suspitionTime)
+            {
+                SuspiciousBehaviour();
             }
             else
             {
-                fighter.Cancel();
+                PatrolBehaviour();
             }
+
+            timeSinceLastSawPlayer += Time.deltaTime;
+        }
+
+        private void PatrolBehaviour()
+        {
+            Vector3 nextPosition = guardPosition;
+            if (patrolPath != null)
+            {
+                if (AtWaypoint())
+                {
+                    CycleWaypoint();
+                }
+
+                nextPosition = GetCurrentWaypoint();
+            }
+            mover.StartMoveAction(nextPosition);
+        }
+
+        private bool AtWaypoint()
+        {
+            float distanceToWaypoint = Vector3.Distance(transform.position, GetCurrentWaypoint());
+            return distanceToWaypoint < waypointTollerance;
+        }
+
+        private void CycleWaypoint()
+        {
+            currentWaypointIndex = patrolPath.GetNextIndex(currentWaypointIndex);
+        }
+
+        private Vector3 GetCurrentWaypoint()
+        {
+            return patrolPath.GetWaypoint(currentWaypointIndex);
+        }
+
+        private void AttackBehaviour()
+        {
+            fighter.Attck(player);
+        }
+
+        private void SuspiciousBehaviour()
+        {
+            GetComponent<ActionScheluder>().CancelCurrentAction();
+        }
+
+        // Called by Unity
+        private void OnDrawGizmosSelected()
+        {
+            Gizmos.color = Color.blue;
+            Gizmos.DrawWireSphere(transform.position, chaseDistance);
         }
     }
 }
