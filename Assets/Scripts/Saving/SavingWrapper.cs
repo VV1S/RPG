@@ -6,17 +6,32 @@ namespace RPG.Saving
     {
         private const string deafaultSaveFile = "save";
 
+        private void Start()
+        {
+            Load();
+        }
+
         private void Update()
         {
             if (Input.GetKeyUp(KeyCode.S))
             {
-                GetComponent<SavingSystem>().Save(deafaultSaveFile);
+                Save();
             }
             if (Input.GetKeyUp(KeyCode.L))
             {
-                GetComponent<SavingSystem>().Load(deafaultSaveFile);
+                Load();
             }
         }
+        public void Save()
+        {
+            GetComponent<SavingSystem>().Save(deafaultSaveFile);
+        }
+
+        public void Load()
+        {
+            GetComponent<SavingSystem>().Load(deafaultSaveFile);
+        }
+
     }
 }
 
