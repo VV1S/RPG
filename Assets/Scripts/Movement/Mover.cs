@@ -1,6 +1,6 @@
-using System;
-using System.Collections.Generic;
+using Assets.Scripts.Saving;
 using RPG.Core;
+using RPG.Saving;
 using UnityEngine;
 using UnityEngine.AI;
 using RPG.Saving;
@@ -63,19 +63,16 @@ namespace RPG.Movement
 
         public object CaptureState()
         {
-            MoverSaveData data = new MoverSaveData();
-            data.position = new SerializableVector3(transform.position);
-            data.rotation = new SerializableVector3(transform.eulerAngles);
-            return data;
+            return new SerializableVector3(transform.position);
         }
 
         public void RestoreState(object state)
         {
-            MoverSaveData data = (MoverSaveData)state;
+            var position = (SerializableVector3)state;
             GetComponent<NavMeshAgent>().enabled = false;
-            transform.position = data.position.ToVector();
-            transform.eulerAngles = data.rotation.ToVector();
+            transform.position = position.ToVector();
             GetComponent<NavMeshAgent>().enabled = true;
+            GetComponent<ActionScheluder>().CancelCurrentAction();
         }
     }
 }

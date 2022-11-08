@@ -2233,15 +2233,19 @@ PrefabInstance:
       propertyPath: healthPoints
       value: 200
       objectReference: {fileID: 0}
+    - target: {fileID: 8514915661549772627, guid: 48d3249d41d8a2c4aa2adaf96ad945d8, type: 3}
+      propertyPath: uniqueIdentifier
+      value: player
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48d3249d41d8a2c4aa2adaf96ad945d8, type: 3}
---- !u!1 &4912377207375613196 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2683711291965821000, guid: 48d3249d41d8a2c4aa2adaf96ad945d8, type: 3}
-  m_PrefabInstance: {fileID: 6994706190165515588}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4912377207375613184 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2683711291965820996, guid: 48d3249d41d8a2c4aa2adaf96ad945d8, type: 3}
+  m_PrefabInstance: {fileID: 6994706190165515588}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4912377207375613196 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2683711291965821000, guid: 48d3249d41d8a2c4aa2adaf96ad945d8, type: 3}
   m_PrefabInstance: {fileID: 6994706190165515588}
   m_PrefabAsset: {fileID: 0}

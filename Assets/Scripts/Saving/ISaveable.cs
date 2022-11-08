@@ -1,8 +1,9 @@
-namespace RPG.Saving
+﻿namespace Assets.Scripts.Saving
 {
-    public interface ISaveable
+    internal interface ISaveable
     {
         object CaptureState();
+
         void RestoreState(object state);
     }
 }

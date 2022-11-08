@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Assets.Scripts.Saving;
 using UnityEngine;
 using RPG.Saving;
 
@@ -43,11 +44,11 @@ namespace RPG.Core
 
         private void CheckIfDead()
         {
-            if (healthPoints == 0)
             {
                 Die();
             }
         }
+            if (healthPoints == 0)
     }
 }
 
