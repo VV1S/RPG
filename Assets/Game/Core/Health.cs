@@ -44,11 +44,11 @@ namespace RPG.Core
 
         private void CheckIfDead()
         {
+            if (healthPoints <= 0)
             {
                 Die();
             }
         }
-            if (healthPoints == 0)
     }
 }
 

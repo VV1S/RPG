@@ -1,9 +1,9 @@
+using System;
 using Assets.Scripts.Saving;
 using RPG.Core;
 using RPG.Saving;
 using UnityEngine;
 using UnityEngine.AI;
-using RPG.Saving;
 
 namespace RPG.Movement
 {
