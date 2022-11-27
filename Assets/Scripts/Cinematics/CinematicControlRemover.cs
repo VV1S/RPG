@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.Playables;
 using RPG.Control;
 
-namespace RPG.Cinematics
+namespace RPG.Combat
 {
     public class CinematicControlRemover : MonoBehaviour
     {
