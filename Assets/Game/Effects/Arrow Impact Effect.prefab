@@ -7,6 +7,38 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2302457091073469191, guid: 69d1b1037536b504884c93bb73d662db, type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2302457091073469191, guid: 69d1b1037536b504884c93bb73d662db, type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 2302457091073469191, guid: 69d1b1037536b504884c93bb73d662db, type: 3}
+      propertyPath: InitialModule.startSize.minScalar
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 2302457091073469191, guid: 69d1b1037536b504884c93bb73d662db, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2302457091073469191, guid: 69d1b1037536b504884c93bb73d662db, type: 3}
+      propertyPath: InitialModule.startSpeed.minScalar
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2302457091073469191, guid: 69d1b1037536b504884c93bb73d662db, type: 3}
+      propertyPath: InitialModule.startLifetime.minScalar
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 2302457091073469191, guid: 69d1b1037536b504884c93bb73d662db, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key0.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2302457091073469191, guid: 69d1b1037536b504884c93bb73d662db, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key1.a
+      value: 0.8117647
+      objectReference: {fileID: 0}
     - target: {fileID: 2302457091092795123, guid: 69d1b1037536b504884c93bb73d662db, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -65,7 +97,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2302457091093092515, guid: 69d1b1037536b504884c93bb73d662db, type: 3}
       propertyPath: m_Name
-      value: Generic Impact Effect
+      value: Arrow Impact Effect
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 69d1b1037536b504884c93bb73d662db, type: 3}

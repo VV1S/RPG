@@ -24,12 +24,15 @@ namespace RPG.Combat
                 var weapon = Instantiate(equippedPrefab, GetTransform(rightHand, leftHand));
                 weapon.name = weaponName;
             }
-
+            var overrideController = animator.runtimeAnimatorController as AnimatorOverrideController;
             if (animatorOverride != null)
             {
                 animator.runtimeAnimatorController = animatorOverride;
             }
-
+            else if (overrideController != null)
+            {
+                animator.runtimeAnimatorController = overrideController.runtimeAnimatorController;
+            }
         }
 
         private void DestroyOldWeapon(Transform rightHand, Transform leftHand)
