@@ -2016,6 +2016,10 @@ PrefabInstance:
       propertyPath: uniqueIdentifier
       value: 1c3d3c54-addc-42ed-bea7-75196ac19012
       objectReference: {fileID: 0}
+    - target: {fileID: 7445552709504523066, guid: 3ef0774ab44fcd246943e63cd2e584cd, type: 3}
+      propertyPath: characterClass
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7626556038191629797, guid: 3ef0774ab44fcd246943e63cd2e584cd, type: 3}
       propertyPath: healthPoints
       value: 80

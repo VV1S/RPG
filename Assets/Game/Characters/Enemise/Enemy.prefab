@@ -42,6 +42,7 @@ MonoBehaviour:
   rightHandTransform: {fileID: 7675288402137334435}
   leftHandTransform: {fileID: 7675288402137408203}
   defaultWeapon: {fileID: 11400000, guid: 2a87a8120e42c0447ada7f08e297a030, type: 2}
+  defaultWeaponName: Unarmed
 --- !u!114 &4999248490235518204
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -118,6 +119,10 @@ PrefabInstance:
     - target: {fileID: 2683711291965821000, guid: 48d3249d41d8a2c4aa2adaf96ad945d8, type: 3}
       propertyPath: m_Name
       value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 4803087872350375920, guid: 48d3249d41d8a2c4aa2adaf96ad945d8, type: 3}
+      propertyPath: characterClass
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5486206825162166575, guid: 48d3249d41d8a2c4aa2adaf96ad945d8, type: 3}
       propertyPath: healthPoints
