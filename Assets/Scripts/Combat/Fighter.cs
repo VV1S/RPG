@@ -1,4 +1,5 @@
 using Assets.Scripts.Saving;
+using RPG.Attributes;
 using UnityEngine;
 using RPG.Movement;
 using RPG.Core;
@@ -11,7 +12,7 @@ namespace RPG.Combat
         [SerializeField] float timeBetweenAttacks = 1f;
         [SerializeField] Transform rightHandTransform = null;
         [SerializeField] Transform leftHandTransform = null;
-        [SerializeField] private Weapon defaultWeapon = null;
+        [SerializeField] private Weapon  defaultWeapon = null;
         [SerializeField] private string defaultWeaponName = "Unarmed";
 
         Health target;

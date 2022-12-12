@@ -1,4 +1,5 @@
 using Assets.Scripts.Saving;
+using RPG.Attributes;
 using RPG.Core;
 using RPG.Saving;
 using UnityEngine;
