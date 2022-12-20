@@ -6,11 +6,12 @@ namespace RPG.Combat
 {
     public class EnemyHealthDisplay : MonoBehaviour
     {
-        [SerializeField] private Text healthValue;
+        private Text healthValue;
         private Fighter fighter;
 
         private void Awake()
         {
+            healthValue = GetComponent<Text>();
             fighter = GameObject.FindWithTag("Player").GetComponent<Fighter>();
         }
 

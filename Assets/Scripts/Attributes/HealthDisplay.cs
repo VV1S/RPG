@@ -6,7 +6,6 @@ namespace RPG.Attributes
 {
     public class HealthDisplay : MonoBehaviour
     {
-        [SerializeField] private Text healthValue;
         private Health health;
 
         private void Awake()
@@ -16,7 +15,7 @@ namespace RPG.Attributes
 
         private void Update()
         {
-            healthValue.text = String.Format("{0:0}%", health.GetPercentage());
+            GetComponent<Text>().text = String.Format("{0:0}%", health.GetPercentage());
         }
     }
 }

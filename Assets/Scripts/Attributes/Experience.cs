@@ -21,5 +21,11 @@ namespace RPG.Attributes
         {
             experiencePoints = (float)state;
         }
+
+        public float GetPoints()
+        {
+            return experiencePoints;
+        }
+
     }
 }
