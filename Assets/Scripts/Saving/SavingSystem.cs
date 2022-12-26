@@ -85,6 +85,11 @@ namespace RPG.Saving
         {
             return Path.Combine(Application.persistentDataPath, saveFile + ".sav");
         }
+
+        public void Delete(string saveFile)
+        {
+            File.Delete(GetPathFromSaveFile(saveFile));
+        }
     }
 }
 
