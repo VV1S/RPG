@@ -6,7 +6,6 @@ namespace RPG.Stats
 {
     public class ExperienceDisplay : MonoBehaviour
     {
-        [SerializeField] private Text xpValue;
         private Experience experience;
 
         void Awake()
