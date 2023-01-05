@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Assets.Scripts.Saving;
@@ -9,14 +10,17 @@ namespace RPG.Attributes
 {
     public class Health : MonoBehaviour, ISaveable
     {
+        [SerializeField] private float regenerationPercentage = 70;
         float healthPoints = -1f;
         bool isDead = false;
 
         private void Start()
         {
+            var baseStats = GetComponent<BaseStats>();
+            baseStats.onLevelUp += RegenerateHealth;
             if (healthPoints < 0)
             {
-                healthPoints = GetComponent<BaseStats>().GetStat(Stat.Health);
+                healthPoints = baseStats.GetStat(Stat.Health);
             }
         }
 
@@ -53,6 +57,12 @@ namespace RPG.Attributes
         {
             if (instigator.TryGetComponent(out Experience experience))
                 experience.GainExperience(GetComponent<BaseStats>().GetStat(Stat.ExperienceReward));
+        }
+
+        private void RegenerateHealth()
+        {
+            var regenHealthPoints = GetComponent<BaseStats>().GetStat(Stat.Health) * regenerationPercentage / 100;
+            healthPoints = Mathf.Max(healthPoints, regenHealthPoints);
         }
 
         public object CaptureState()

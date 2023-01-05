@@ -1520,6 +1520,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cbc5d9ebca7c8443aa29021a62cc9e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5588761972654980147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4912377207375613196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627f612f1ec82be49a5cd09358e8ff80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  experiencePoints: 0
 --- !u!114 &8911137673080976740
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1537,19 +1550,6 @@ MonoBehaviour:
   leftHandTransform: {fileID: 4023398427110732286}
   defaultWeapon: {fileID: 11400000, guid: 2a87a8120e42c0447ada7f08e297a030, type: 2}
   defaultWeaponName: Unarmed
---- !u!114 &5588761972654980147
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4912377207375613196}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 627f612f1ec82be49a5cd09358e8ff80, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  experiencePoints: 0
 --- !u!1 &7048088965213930950
 GameObject:
   m_ObjectHideFlags: 0
@@ -2244,9 +2244,17 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 4803087872350375920, guid: 48d3249d41d8a2c4aa2adaf96ad945d8, type: 3}
+      propertyPath: levelUpEffect
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4803087872350375920, guid: 48d3249d41d8a2c4aa2adaf96ad945d8, type: 3}
       propertyPath: characterClass
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4803087872350375920, guid: 48d3249d41d8a2c4aa2adaf96ad945d8, type: 3}
+      propertyPath: levelUpParticleEffect
+      value: 
+      objectReference: {fileID: 1809688922737444696, guid: 5061298f33095ac44860aadf7168903b, type: 3}
     - target: {fileID: 5486206825162166575, guid: 48d3249d41d8a2c4aa2adaf96ad945d8, type: 3}
       propertyPath: health
       value: 100
