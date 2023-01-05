@@ -1,4 +1,5 @@
-﻿using Assets.Scripts.Saving;
+﻿using System;
+using Assets.Scripts.Saving;
 using UnityEngine;
 
 namespace RPG.Stats
@@ -7,9 +8,12 @@ namespace RPG.Stats
     {
         [SerializeField] private float experiencePoints = 0;
 
+        public event Action onExperienceGained;
+
         public void GainExperience(float experience)
         {
             experiencePoints += experience;
+            onExperienceGained();
         }
 
         public object CaptureState()

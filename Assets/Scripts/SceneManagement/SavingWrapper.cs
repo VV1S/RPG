@@ -10,7 +10,12 @@ namespace RPG.SceneManagement
 
         [SerializeField] private float fadeInTime;
 
-        private IEnumerator Start()
+        void Awake()
+        {
+            StartCoroutine(LoadLastScene());
+        }
+
+        private IEnumerator LoadLastScene()
         {
             Fader fader = FindObjectOfType<Fader>();
             fader.FadeOutImmediate();
