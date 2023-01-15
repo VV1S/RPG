@@ -1,19 +1,20 @@
+using System.Collections.Generic;
 using Assets.Scripts.Saving;
 using RPG.Attributes;
 using UnityEngine;
 using RPG.Movement;
 using RPG.Core;
+using RPG.Stats;
 
 namespace RPG.Combat
 {
-    public class Fighter : MonoBehaviour, IAction, ISaveable
+    public class Fighter : MonoBehaviour, IAction, ISaveable, IModifierProvider
     {
 
         [SerializeField] float timeBetweenAttacks = 1f;
         [SerializeField] Transform rightHandTransform = null;
         [SerializeField] Transform leftHandTransform = null;
         [SerializeField] private Weapon  defaultWeapon = null;
-        [SerializeField] private string defaultWeaponName = "Unarmed";
 
         Health target;
         float timeSinceLastAttack = Mathf.Infinity;
@@ -88,15 +89,23 @@ namespace RPG.Combat
         
         public void Cancel()
         {
-            TriggerStopAttack();
+            StopAttack();
             target = null;
             GetComponent<Mover>().Cancel();
         }
 
-        private void TriggerStopAttack()
+        private void StopAttack()
         {
             GetComponent<Animator>().ResetTrigger("attack");
             GetComponent<Animator>().SetTrigger("stopAttack");
+        }
+
+        public IEnumerable<float> GetAdditiveModifier(Stat stat)
+        {
+            if (stat == Stat.Damage)
+            {
+                yield return currentWeapon.GetDamage();
+            }
         }
 
         //Animation Event
@@ -104,13 +113,14 @@ namespace RPG.Combat
         {
             if(target == null) { return; }
 
+            var damage = GetComponent<BaseStats>().GetStat(Stat.Damage);
             if (currentWeapon.HasProjectile())
             {
-                currentWeapon.LaunchProjectile(rightHandTransform, leftHandTransform, target, gameObject);
+                currentWeapon.LaunchProjectile(rightHandTransform, leftHandTransform, target, gameObject, damage);
             }
             else
             {
-                target.TakeDamage(gameObject, currentWeapon.GetDamage());
+                target.TakeDamage(gameObject, damage);
             }
         }
 

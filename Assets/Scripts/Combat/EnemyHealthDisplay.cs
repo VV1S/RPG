@@ -17,13 +17,13 @@ namespace RPG.Combat
 
         private void Update()
         {
-            var targetHealth = fighter.GetTarget();
-            if (targetHealth == null)
+            var health = fighter.GetTarget();
+            if (health == null)
             {
                 healthValue.text = "No enemy targeted";
                 return;
             }
-            healthValue.text = String.Format("{0:0}%", targetHealth.GetPercentage());
+            healthValue.text = String.Format("{0:0}/{1:0}", health.GetHealthPoints(), health.GetMaxHealthPoints());
         }
     }
 }
