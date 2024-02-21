@@ -7,7 +7,7 @@ using UnityEngine;
 namespace RPG.Saving
 {
     [ExecuteAlways]
-    public class SaveableEntity: MonoBehaviour
+    public class SaveableEntity: MonoBehaviour//, ISaveable
     {
         [SerializeField] private string uniqueIdentifier = "";
         static Dictionary<string, SaveableEntity> globalLookup = new Dictionary<string, SaveableEntity>();  

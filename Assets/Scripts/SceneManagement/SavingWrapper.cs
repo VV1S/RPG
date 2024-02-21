@@ -6,7 +6,7 @@ namespace RPG.SceneManagement
 {
     public class SavingWrapper : MonoBehaviour
     {
-        private const string deafaultSaveFile = "save";
+        private const string deafaultSaveFile = "newSaveFile";
 
         [SerializeField] private float fadeInTime;
 
