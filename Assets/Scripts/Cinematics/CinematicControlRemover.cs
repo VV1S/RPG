@@ -9,12 +9,23 @@ namespace RPG.Combat
     {
         GameObject player;
 
-        private void Start()
+        private void Awake()
+        {
+            player = GameObject.FindWithTag("Player");
+        }
+
+        void OnEnable()
         {
             GetComponent<PlayableDirector>().played += DisableControl;
             GetComponent<PlayableDirector>().stopped += EnableControl;
-            player = GameObject.FindWithTag("Player");
         }
+
+        void OnDisable()
+        {
+            GetComponent<PlayableDirector>().played -= DisableControl;
+            GetComponent<PlayableDirector>().stopped -= EnableControl;
+        }
+
         void DisableControl(PlayableDirector pd)
         {
             player.GetComponent<ActionScheluder>().CancelCurrentAction();
